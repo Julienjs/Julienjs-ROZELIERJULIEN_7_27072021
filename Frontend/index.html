@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/V.mobile.css">
+    <link rel="stylesheet" media="screen and (min-width:768px) and (max-width:1366px)" href="css/V.tablette.css">
+    <link rel="stylesheet" media="screen and (min-width:1367px)" href="css/V.desktop.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+    <title>Connection</title>
+</head>
+
+<body>
+    <header>
+        <img src="logo/icon-left-font-monochrome-white.png" alt="logo de l'entreprise groupomania"
+            class="logo-groupomania">
+    </header>
+    <main id="connection">
+        <div id="Presentation">
+            <img class="imgEntreprise" src="logo/imgentreprise.jpg" alt="bureau avec des ordinateurs">
+            <div class="cadre"></div>
+            <h1 class="centrerPresentation">Bienvenue sur votre premier réseau social d'entreprise
+            </h1>
+        </div>
+        <div class="connection">
+            <form class="form form-connection" action="http://localhost:3000api/auth/login" method="POST">
+                <h2 class="titre-formulaire">Identifiez-vous</h2>
+                <div class="bordure"></div>
+                <label for="email"></label>
+                <input id="email" class="input" type="email" name="email" placeholder="Adresse e-mail">
+                <label for="password"></label>
+                <input id="password" class="input" type="password" name="password" placeholder="Mot de passe">
+                <input type="submit" value="Se connecter" class="button button-connection">
+            </form>
+            <button onclick="window.location.href ='inscription.html';" class="button button-creer-compte">Créer
+                un
+                compte</button>
+        </div>
+    </main>
+    <footer>
+        <p>Groupomania</p>
+    </footer>
+    <script src="/Frontend/js/Users.js"></script>
+    <script src="/Frontend/js/index.js"></script>
+</body>
+
+</html>

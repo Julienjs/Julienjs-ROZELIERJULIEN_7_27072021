@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/V.mobile.css">
+    <link rel="stylesheet" media="screen and (min-width:768px) and (max-width:1366px)" href="css/V.tablette.css">
+    <link rel="stylesheet" media="screen and (min-width:1367px)" href="css/V.desktop.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3dcad16f7a.js" crossorigin="anonymous"></script>
+    <title>Page d'accueil</title>
+</head>
+
+<body>
+    <header>
+        <div class="header-logo">
+            <a href="index.html"><img src="logo/icon-left-font-monochrome-white.png"
+                    alt="logo de l'entreprise groupomania" class="logo-groupomania"></a>
+        </div>
+        <nav class="header-navigation">
+            <ul class="header-navigation-liste">
+                <li>
+                    <a href="#"><i class="fas fa-home"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-user"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-bell"></i></a>
+                </li>
+                <li>
+                    <i class="fas fa-users"></i>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-power-off"></i></a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main class="main-accueil">
+        <div class="nouveau-post nouveau-post-accueil">
+            <a href="compte.html"><img class="photo photo-nouveau-post" src=" logo/OIP.jpg" alt=""></a>
+            <a href="#popup" class="button-nouveau-post">Nouvelle publication ...</a>
+        </div>
+        <div id="popup" class="style-popup">
+            <form class="form form-popup" action="">
+                <img class="photo photo-form" src=" logo/OIP.jpg" alt="">
+                <a href="#" class="fermer-popup">&times;</a>
+                <label for="titre"></label>
+                <input id="titre" class="input input-titre-popup" type="text" name="titre" placeholder="Titre ...">
+                <textarea id="message" class="input input-message-popup" name="message"
+                    placeholder="Message ..."></textarea>
+                <input type="submit" value="Publier" class="button button-inscription">
+            </form>
+        </div>
+        <section id="Post">
+            <div class="titre-section">
+                <img class="logo-post" src="logo/icon.png" alt="logo d'entreprise">
+                <h2>Fil d'actualité</h2>
+            </div>
+            <article class="article-post">
+                <div class="profil-post">
+                    <a href="compte.html"><img class="photo photo-post" src="logo/OIP.jpg" alt="photo de profil"></a>
+                    <h3>Luffy</h3>
+                </div>
+                <div class="date-publication">
+                    <p>Publié le: 18/08/2021</p>
+                    <p>À: 20H51</p>
+                </div>
+                <!-- <button class="button-supprimer">X</button> -->
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id voluptates quidem inventore, aliquid
+                    accusamus cumque incidunt culpa possimus excepturi, ea voluptatem optio autem. Cumque, quae
+                    reprehenderit! Illum, repellat deserunt? Maxime?</p>
+                <img class="img-post" src="logo/bateau.jpg" alt="">
+                <form action="commentaire">
+                    <textarea id="form-commentaire" class="input" name="commentaire"
+                        placeholder="Commenter..."></textarea>
+                    <!-- <input type="submit" value="Envoyer" class="button button-commentaire"> -->
+                </form>
+            </article>
+            <article class="article-post">
+                <div class="profil-post">
+                    <a href="compte.html"><img class="photo photo-post" src="logo/OIP.jpg" alt="photo de profil"></a>
+                    <h3>Luffy</h3>
+                </div>
+                <div class="date-publication">
+                    <p>Publié le: 18/08/2021</p>
+                    <p>À: 20H51</p>
+                </div>
+                <!-- <button class="button-supprimer">X</button> -->
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id voluptates quidem inventore, aliquid
+                    accusamus cumque incidunt culpa possimus excepturi, ea voluptatem optio autem. Cumque, quae
+                    reprehenderit! Illum, repellat deserunt? Maxime?</p>
+                <img class="img-post" src="logo/bateau.jpg" alt="">
+                <form action="commentaire">
+                    <textarea id="form-commentaire" class="input" name="commentaire"
+                        placeholder="Commenter..."></textarea>
+                    <!-- <input type="submit" value="Envoyer" class="button button-commentaire"> -->
+                </form>
+            </article>
+            <article class="article-post">
+                <div class="profil-post">
+                    <img class="photo photo-post" src="logo/zoro.jpg" alt="photo de profil">
+                    <h3>Zoro</h3>
+                </div>
+                <div class="date-publication">
+                    <p>Publié le: 18/08/2021</p>
+                    <p>À: 21H</p>
+                </div>
+                <!-- <button class="button-supprimer">X</button> -->
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id voluptates quidem inventore, aliquid
+                    accusamus cumque incidunt culpa possimus excepturi, ea voluptatem optio autem. Cumque, quae
+                    reprehenderit! Illum, repellat deserunt? Maxime?</p>
+                <img class="img-post" src="logo/sabre.jpg" alt="">
+                <form action="commentaire">
+                    <textarea id="form-commentaire" class="input" name="commentaire"
+                        placeholder="Commenter..."></textarea>
+                    <!-- <input type="submit" value="Envoyer" class="button button-commentaire"> -->
+                </form>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <p>Groupomania</p>
+    </footer>
+</body>
+
+</html>

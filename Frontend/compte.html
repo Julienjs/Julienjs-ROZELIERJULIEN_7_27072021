@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/V.mobile.css">
+    <link rel="stylesheet" media="screen and (min-width:768px) and (max-width:1366px)" href="css/V.tablette.css">
+    <link rel="stylesheet" media="screen and (min-width:1367px)" href="css/V.desktop.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Shrikhand&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/3dcad16f7a.js" crossorigin="anonymous"></script>
+    <title>Compte</title>
+</head>
+
+<body>
+    <header>
+        <div class="header-logo">
+            <a href="index.html"><img src="logo/icon-left-font-monochrome-white.png"
+                    alt="logo de l'entreprise groupomania" class="logo-groupomania"></a>
+        </div>
+        <nav class="header-navigation">
+            <ul class="header-navigation-liste">
+                <li>
+                    <a href="#"><i class="fas fa-home"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-user"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-bell"></i></a>
+                </li>
+                <li>
+                    <i class="fas fa-users"></i>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-power-off"></i></a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main class="main-compte">
+        <section class="profil-compte">
+            <img class=" photo photo-compte" src=" logo/OIP.jpg" alt="">
+            <div class="bouton-modifier-photo"><i class="fas fa-pencil-alt"></i></div>
+        </section>
+        <section>
+            <article>
+                <form class="form" action="">
+                    <label for="username"></label>
+                    <input type="text" id="username" class="input" placeholder="Nom...">
+                    <label for="description"></label>
+                    <textarea name="descritpion" id="descritpion" cols="30" rows="10" class="input textarea-description"
+                        placeholder="Description..."></textarea>
+                    <label for="password"></label>
+                    <input id="password" class="input" type="password" name="password" placeholder="Mot de passe"
+                        pattern="[a-zA-Z0-9 ]{1,100}" required>
+                    <label for="new-password"></label>
+                    <input id="new-password" class="input" type="password" name="password"
+                        placeholder="Nouveau mot de passe" pattern="[a-zA-Z0-9 ]{1,100}" required>
+                </form>
+            </article>
+        </section>
+
+        </section>
+        <div class="compte-lien-publication">
+            <span>Voir mes publications</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </main>
+    <footer>
+        <p>Groupomania</p>
+    </footer>
+</body>
+
+</html>
