@@ -1,4 +1,5 @@
-import { DELETE_POST, GET_ALL_POSTS, UPDATE_POST } from "../actions/Post.action";
+import { GET_ALL_COMMENTS } from "../actions/comment.action";
+import { DELETE_POST, GET_ALL_POSTS, UPDATE_POST, EDIT_COMMENT, DELETE_COMMENT, UPDATE_IMG_POST, LIKE_POST } from "../actions/post.action";
 
 const initialState = {};
 
@@ -9,16 +10,90 @@ export default function postReducer(state = initialState, action) {
         case UPDATE_POST:
             return state.map((post) => {
                 if (post.id === action.payload.postId) {
-
                     return {
                         ...post,
                         message: action.payload.message,
-                        titre: action.payload.titre
+                    };
+                } else return post;
+            });
+        case UPDATE_IMG_POST:
+            return state.map((post) => {
+                if (post.id === action.payload.postId) {
+                    return {
+                        ...post,
+                        image: action.payload.image,
                     };
                 } else return post;
             });
         case DELETE_POST:
-            return state.filter((post) => (post.id === action.payload.postId));
+            return state.filter((post) => post.id !== action.payload.postId);
+        case GET_ALL_COMMENTS:
+            return action.payload;
+        case EDIT_COMMENT:
+            return state.map((post) => {
+                return {
+                    ...post,
+                    Comments: post.Comments.map((comment) => {
+                        if (comment.id === action.payload.commentId) {
+                            return {
+                                ...comment,
+                                comment: action.payload.comment,
+                            };
+                        } else {
+                            return comment;
+                        }
+                    }),
+                };
+            });
+        case DELETE_COMMENT:
+            return state.map((post) => {
+                return {
+                    ...post,
+                    Comments: post.Comments.filter(
+                        (comment) => comment.id !== action.payload.commentId
+                    ),
+                };
+            });
+        case LIKE_POST:
+            return state.map((post) => {
+                if (post.id === action.payload.postId) {
+                    if (action.payload.liked) {
+                        return {
+                            ...post,
+                            Likes: [...post.Likes, 0],
+                        }
+                    }
+                    else {
+                        const likesArray = post.Likes;
+                        likesArray.pop();
+                        return { ...post, Likes: likesArray }
+                    }
+                } return post
+            });
+        // case LIKE_COMMENT:
+        //     return state.map((post) => {
+        //         return {
+        //             ...post,
+        //             comment: post.Comments.map((comment) => {
+        //                 if (comment.id === action.payload.commentId) {
+        //                     if (action.payload.liked) {
+        //                         return {
+        //                             ...comment,
+        //                             Likes: [...comment.LikesComments, 0],
+        //                         }
+        //                     }
+        //                     else {
+        //                         const likesArray = comment.LikesComments;
+        //                         likesArray.pop();
+        //                         return { ...comment, Likes: likesArray }
+        //                     }
+        //                 }
+        //                 return post
+        //             })
+        //         }
+
+        //     });
+
         default:
             return state;
     }

@@ -9,7 +9,8 @@ const Comment = database.define("Comment", {
     imageUrl: {
         type: DataTypes.STRING,
         allowNull: true,
-    }
+    },
+
 });
 
 module.exports = Comment;

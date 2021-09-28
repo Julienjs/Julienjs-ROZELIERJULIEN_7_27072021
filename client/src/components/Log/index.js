@@ -1,31 +1,37 @@
 import React, { useState } from 'react';
-import Connexion from './connexion';
-import Inscription from './inscription';
+import SignIn from './SignIn';
+import SignUp from './SignUp';
 
 
 
 const Log = (props) => {
-    const [inscriptionModal, setInscriptionModal] = useState(props.inscription);
-    const [connexionModal, setConnexionModal] = useState(props.connexion);
+    const [signUpModal, setSignUpModal] = useState(props.signup);
+    const [signInModal, setSignInModal] = useState(props.signin);
 
-    const afficherModel = (e) => {
-        if (e.target.id === "inscription") {
-            setConnexionModal(false);
-            setInscriptionModal(true);
-        } else if (e.target.id === "connexion") {
-            setInscriptionModal(false);
-            setConnexionModal(true);
+    const handleModals = (e) => {
+        if (e.target.id === "signup") {
+            setSignInModal(false);
+            setSignUpModal(true);
+        } else if (e.target.id === "signin") {
+            setSignUpModal(false);
+            setSignInModal(true);
         }
     }
 
     return (
-        <div className="form-accueil">
-            <div className="bouton-accueil">
-                <button onClick={afficherModel} id="connexion" className="button bouton-lien bouton-lien-connexion">S'identifier</button>
-                <button onClick={afficherModel} id="inscription" className="button bouton-lien bouton-lien-inscription">Créer un compte</button>
+        <div id="form-container">
+            <div className="form-home-link">
+                <p id="signin" className="link"
+                    onClick={handleModals} >
+                    S'identifier
+                </p>
+                <p id="signup" className="link"
+                    onClick={handleModals} >
+                    Créer un compte
+                </p>
             </div>
-            {connexionModal && <Connexion />}
-            {inscriptionModal && <Inscription />}
+            {signInModal && <SignIn />}
+            {signUpModal && <SignUp />}
         </div>
     );
 };

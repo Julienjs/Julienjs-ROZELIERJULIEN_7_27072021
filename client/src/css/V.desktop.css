@@ -1,211 +1,252 @@
-.font{
-    text-align: center;
-    font-size: 5em;
+@media screen and (min-width:768px) {
+
+    /* navigation */
+    .navigation {
+        /* border: solid black; */
+        width: 25%;
+        margin-right: 30px;
+    }
+
+    /* icônes */
+    /* i {
+        font-size: 1.3em;
+    } */
+
+    .fa-arrow-left {
+        font-size: 1.5em;
+    }
+
+    /* fin des icônes */
+
+    /* toutes les pages */
+    /* header, main; footer */
+
+    /* toutes les pages logo header */
+    /* .logo-groupomania{
+        width: 300px;
+    }
+     */
+    /* fin de toutes les pages  */
+
+    /* index */
+    /* index header */
+    /* .header-logo{
+        width: 70%;
+        margin-left: 20px;
+    } */
+
+    /* index formulaire */
+    /* .titre-formulaire{
+        font-size: 1.7em;
+    } */
+
+    /* .bordure{
+        margin-bottom: 40px;
+    } */
+    /* index inscription */
+    .logoEntreprise {
+        display: block;
+        width: 40%;
+        padding: 0 6% 0 4%;
+        border-right: 1px solid rgb(46, 45, 45)
+    }
+
+    /* .inscription{
+        width: 30%;
+        margin: auto;
+    } */
+    /* index bouton */
+
+    /* index main */
+
+    /* #main-connexion{
+        display: flex;
+        justify-content: space-around;
+    }
+
+    #Presentation {    
+        height: 600px;
+        width: 60%;  
+        margin: 20px 0;
+    } */
+
+    /* .imgEntreprise{ 
+        height: 600px;
+    } */
+
+    .centrerPresentation {
+        top: 50%;
+        left: 57%;
+    }
+
+    /* .cadre{ 
+        height: 600px;
+    } */
+
+    /* .form-accueil{
+        /* border: solid black; */
+    /* width: 35%;
+        flex-direction: column-reverse;
+        justify-content: none;
+        align-items: center;  
+        border-radius: 20px;
+        box-shadow: 0px 10px 10px 5px rgb(0 0 0 / 25%);  
+        margin-top: 20px;
+        height: 600px; */
+
+    /* } */
+    */
+    /* .bouton-accueil{
+       height: 100px;
+       display: flex;
+       flex-direction: column;
+
+       align-items: center;
+       margin:0 0 40px 0 ;
+       width: 100%;
+       
+      
+   } */
+
+    /* .bouton-lien{ */
+    /* background-color: white; */
+    /* color: black; */
+    /* margin: 0; */
+    /* border-bottom: 0.5px solid black;
+    width: 47%;  
+} */
+
+    /* .bouton-lien-connexion{ */
+    /* background-color:rgb(46, 45, 45);; */
+    /* border: 0;
+  
+} */
+
+    /* .bouton-lien-inscription{   */
+    /* background-color:rgba(255, 0, 0, 0.726); */
+    /* border: 0;
+}  */
+    /* fin index */
+
+    /* accueil */
+    /* accueil page publication */
+    .main-accueil {
+        flex-direction: column;
+    }
+
+    /* #Post {
+        width: 80%;
+    } */
+
+    /* .titre-section {
+        margin: 0 400px 40px 0;
+    } */
+
+    /* .article-post {
+        width: 75%;
+
+    } */
+
+    .profil-post {
+        display: flex;
+        width: 20%;
+        font-size: 1.5em;
+        justify-content: space-between;
+    }
+
+    /* .photo-post {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+    } */
+
+    #form-commentaire {
+        width: 99.5%;
+    }
+
+    /* accueil création d'une publication*/
+
+
+    /* fin accueil */
+
+    /* accueil + compte header navigation */
+    /* .header-navigation {
+        width: 500px;
+
+    } */
+
+    /* .header-navigation-liste {
+        display: flex;
+        justify-content: space-between;
+        width: 300px;
+    } */
+
+    /* accueil + compte création d'une publication */
+
+    /* .nouveau-post {
+        width: 60%;
+        height: 100px;
+        justify-content: center;
+    } */
+
+    /* .photo-nouveau-post {
+        width: 70px;
+        height: 70px;
+    } */
+
+    .button-nouveau-post {
+        padding: 0 20px;
+        width: 900px;
+        height: 70px;
+        margin-left: 20px;
+    }
+
+    /* accueil + compte création d'une publication popup */
+    .photo-form {
+        height: 100px;
+        width: 100px;
+    }
+
+    .form-popup {
+        width: 30%;
+        margin: 100px auto;
+        padding: 20px 0;
+    }
+
+    .input-titre-popup {
+        width: 80%;
+    }
+
+    .input-message-popup {
+        height: 250px;
+        width: 80%;
+    }
+
+    .fermer-popup {
+        text-decoration: none;
+        font-size: 2em;
+        color: black;
+        font-weight: bold;
+        position: relative;
+        bottom: 110px;
+        left: 255px;
+    }
+
+    /* fin accueil + compte création d'une publication  */
+
+    /* compte */
+
+    /* compte page toutes les publications*/
+    .main-compte {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* compte création d'une publication*/
+    .nouveau-post-compte {
+        margin-left: 0;
+        width: 65%;
+    }
+
+    /* fin compte */
 }
-/* navigation */
-.navigation{
-    /* border: solid black; */
-    width: 25%;
-    margin-right: 30px;
-}
-
-/* icônes */
-i{
-    font-size: 1.3em;
-}
-.fa-arrow-left{
-    font-size: 1.5em;
- }
-/* fin des icônes */
-
-/* toutes les pages */
-/* header, main; footer */
-.main{
-    /* margin: 10px 20px ; */
-    flex-direction: row;
-    /* justify-content: space-between; */
-}
-
-/* toutes les pages logo header */
-.logo-groupomania{
-    width: 300px;
-}
-
-/* fin de toutes les pages  */
-
-/* index */
-/* index header */
-.header-logo{
-    width: 70%;
-    margin-left: 20px;
-}
-/* index formulaire */
-.titre-formulaire{
-    font-size: 1.7em;
-}
-
-.bordure{
-    margin-bottom: 40px;
-}
-/* index inscription */
-.logoEntreprise{
-    display: block;
-    width: 40%;
-    padding: 0 6% 0 4%;
-    border-right: 1px solid rgb(46, 45, 45)
-}
-
-.inscription{
-    width: 30%;
-    margin: auto;
-}
-/* index bouton */
-
-/* index main */
-
-
-#Presentation {    
-    height: 600px;
-    width: 100%;  
-    /* margin: 20px 0; */
-}
-
-.imgEntreprise{ 
-    height: 600px;
-}
-
-.centrerPresentation {
-    top: 50%;
-    left: 57%;
-}
-
-.cadre{ 
-    height: 600px;
-}
-
-.connexion{
-    width: 30%;
-    margin: 20px auto;
-    height: 600px;
-    border-radius: 20px;
-    box-shadow: 0px 10px 10px 5px rgb(0 0 0 / 25%);  
-}
-
-/* fin index */
-
-/* accueil */
-/* accueil page publication */
-.main-accueil{
-    flex-direction: column;
-}
-
-#Post{
-    width: 80%;
-}
-
-.titre-section{
-    margin:0 400px 40px 0;
-}
-
-.article-post{
-    width: 75%;
-
-}
-
-.profil-post{
-    display: flex;
-    width: 20%;
-    font-size: 1.5em;
-    justify-content: space-between;
-}
-
-.photo-post{
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-}
-
-#form-commentaire{
-    width: 99.5%;   
-}
-
-/* accueil création d'une publication*/
-
-
-/* fin accueil */
-
-/* accueil + compte header navigation */
-.header-navigation{
-    width: 500px;
- 
-}
-
-.header-navigation-liste{
-   display: flex;
-   justify-content: space-between;
-   width: 300px;
-}
-/* accueil + compte création d'une publication */
-
-.nouveau-post{ 
-    width: 60%;
-    height: 100px;
-    justify-content: center;
-}
-
-.photo-nouveau-post{
-    width: 70px;
-    height: 70px;
-}
-
-.button-nouveau-post{
-    padding: 0 20px;
-    width: 900px;
-    height: 70px;
-    margin-left: 20px;
-}
-/* accueil + compte création d'une publication popup */
-.photo-form{
-    height: 100px;
-    width: 100px;
-}
-
-.form-popup{
-    width: 30%;
-    margin: 100px auto;
-    padding: 20px 0;
-}
-
-.input-titre-popup{
-    width: 80%;
-}
-.input-message-popup{
-    height: 250px;
-    width: 80%;
-}
-
-.fermer-popup{
-    text-decoration: none;
-    font-size: 2em;
-    color: black;
-    font-weight: bold;
-    position: relative;
-    bottom: 110px;
-    left: 255px;
-}
-/* fin accueil + compte création d'une publication  */
-
-/* compte */
-
-/* compte page toutes les publications*/
-.main-compte{
-    display: flex;
-    flex-direction: column;
-}
-/* compte création d'une publication*/
-.nouveau-post-compte{
-    margin-left:0;
-    width: 65%;
-}
-
-/* fin compte */

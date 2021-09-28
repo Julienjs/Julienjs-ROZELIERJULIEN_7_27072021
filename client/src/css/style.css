@@ -1,214 +1,1330 @@
+/* Général */
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 1.2em;
+}
 
-    body{
-        padding: 0;
-        margin: 0;
-    }
-    .font{
-        text-align: center;
-        font-size: 5em;
-    }
-    p{
-        text-align: justify;
-    }
-    
-    li{
-        list-style: none;
-    }
-    
-    /* icônes */
-    nav i{
-        font-size: 1em;
-        color: white;
-    }
-    
-    .fa-arrow-left{
-        position: absolute;
-        left: 20px;
-        top: 40px;
-    } 
-    
-    .fa-pencil-alt{
-        color: black;
-    }
-    
-    .fa-times-circle{
-        color: red;
-    }
-    /* fin des icônes */
-    
-    /* toutes les pages */
-    /* header, main; footer */
-    header{
-        background-color: rgba(255, 0, 0, 0.726);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100px;
-    }
-    
-    .main{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    footer{
-        background-color: rgba(255, 0, 0, 0.726);
-        height: 100px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        font-size: 1.2em;
-        font-weight: 800;
-    }
-    
-    /* toutes les pages logo header */
-    .logo-groupomania{
-        width: 180px;
-        height: 100px;
-        object-fit: cover;   
-    }
-    
-    /* toutes les pages formulaire */
-    .form{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .input{
-        border-radius: 10px;
-        border: 1px solid rgb(180, 180, 180);
-        height: 50px;
-        width: 300px;
-        margin-bottom: 10px;
-        font-size: 1.5em;
-    }
-    
-    ::placeholder{
-        padding-left: 10px;
-    }
-    
-    textarea{
-        padding-top: 10px;
-        font-family: Arial, Helvetica, sans-serif;
-    }
+h2 {
+    margin: 0;
+}
 
-    .erreur{
+li {
+    list-style: none;
+}
+
+i {
+    cursor: pointer;
+}
+
+.close {
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(226, 223, 223, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+}
+
+
+/* Général - main */
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Général - section */
+section {
+    width: 100%;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Général - article */
+article {
+    background-color: white;
+}
+
+/* Général - icônes */
+i {
+    font-size: 1em;
+}
+
+/* Général - Picture-img */
+.picture {
+    border-radius: 50%;
+}
+
+img {
+    object-fit: cover;
+}
+
+/* Général - Formulaire */
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 98%;
+}
+
+input {
+    border-radius: 10px;
+    border: 1px solid rgb(180, 180, 180);
+    height: 50px;
+    width: 300px;
+    margin-bottom: 10px;
+}
+
+.error {
     color: red;
+    width: 100%;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.error-signUp {
+    width: 100%;
+    font-size: 0.8em;
+
+}
+
+::placeholder {
+    padding-left: 5px;
+    font-size: 1.2em
+}
+
+textarea {
+    resize: none;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 95%;
+    height: 50px;
+    border-radius: 10px;
+    outline: none;
+}
+
+/* Général - Button */
+.button:hover {
+    filter: brightness(1.1);
+}
+
+.button {
+    height: 50px;
+    width: 200px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-weight: 800;
+    margin: 20px 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.green-button {
+    background-color: rgb(2, 136, 2, 0.7);
+}
+
+.red-button {
+    background-color: rgba(255, 0, 0, 0.726);
+}
+
+/* Components / Navbar */
+header {
+    background-color: rgb(63, 58, 58);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+}
+
+.headerLogin {
+    display: flex;
+    justify-content: center;
+}
+
+.header-container-img {
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.header-img-groupomania {
+    width: 180px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.navbar {
+    z-index: 5;
+    margin-left: 80px;
+}
+
+.nav-links {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    right: -100vw;
+    bottom: 0;
+    height: 110vh;
+    padding: 2rem;
+    visibility: hidden;
+    background-color: rgb(63, 58, 58);
+}
+
+.show-nav .nav-links {
+    right: 0;
+    width: 100vw;
+    visibility: visible;
+    padding: 0;
+    overflow-y: none;
+}
+
+.show-nav .navbar-burger {
+    position: fixed;
+    right: 0;
+    top: 30px;
+}
+
+header nav ul li {
+    color: white;
+    display: block;
+}
+
+.navbar-burger {
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    color: inherit;
+}
+
+.burger-bar,
+.burger-bar::before,
+.burger-bar::after {
+    display: block;
+    width: 30px;
+    height: 3px;
+    position: relative;
+    border-radius: 3px;
+    background-color: white;
+    transition: all .5s ease-in-out;
+}
+
+.burger-bar::before,
+.burger-bar::after {
+    content: "";
+    position: absolute;
+    left: 0;
+}
+
+.burger-bar::before {
+    transform: translateY(-10px);
+}
+
+.burger-bar::after {
+    transform: translateY(10px);
+}
+
+.show-nav .burger-bar {
+    width: 0;
+    background: transparent;
+}
+
+.show-nav .burger-bar::before {
+    transform: rotate(45deg);
+}
+
+.show-nav .burger-bar::after {
+    transform: rotate(-45deg);
+}
+
+/* Components / Footer */
+footer {
+    background-color: rgb(63, 58, 58);
+    /* background-color: rgba(255, 0, 0, 0.726); */
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.2em;
+    font-weight: 800;
+}
+
+
+/* Pages/ Home */
+#log-presentation {
+    position: relative;
+    color: white;
+    height: 300px;
+    width: 100%;
+    font-size: 0.9em;
+}
+
+#main-log div img {
+    position: absolute;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.log-box {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background-color: black;
+    opacity: 0.4;
+}
+
+#main-log h1 {
+    background-color: transparent;
+    width: 80%;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Components/ Log / index */
+#form-container {
+    display: flex;
+    flex-direction: column-reverse;
+    /* width: 90%; */
+}
+
+.form-home-link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0 50px 0;
+}
+
+.form-home-link p:hover {
+    color: rgb(66, 66, 253);
+}
+
+.form-home-link p {
+    color: black;
+    margin: 0;
+    border-radius: 0;
+    height: 40px;
+    cursor: pointer;
+}
+
+/* Components/ Log / SignIn & SignUp  */
+.login {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login h2 {
+    margin: 20px 0 10px 0;
+}
+
+.login-borderBottom {
+    border-top: 1px solid rgb(10, 10, 10, 0.4);
+    width: 250px;
+    margin-bottom: 20px;
+}
+
+.login form input {
+    outline: none;
+    border: none;
+    height: 50px;
+    width: 100%;
+    padding: 0 10px;
+    background-color: rgb(232, 240, 254);
+}
+
+.container-inputPassword {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    background-color: rgb(232, 240, 254);
+    border-radius: 10px;
+    padding: 0 10px;
+}
+
+.container-inputPassword input {
+    outline: none;
+    border: none;
+    padding: 0;
+    background: none;
+    margin: 0;
+}
+
+.eye {
+    color: rgb(150, 150, 150);
+}
+
+.registration h4 {
+    color: green;
+    font-size: 1.3em;
+}
+
+.confirmPassword {
+    margin-top: 5px;
+    font-size: 0.8em;
+    color: red;
+}
+
+/* Components / Profil / ProfilUser */
+#article-account-name-img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#article-account-name-img h1 {
+    margin: 0 0 10px 0;
+}
+
+.container-account-description {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+
+.account-description p {
+    width: 300px;
+    height: 150px;
+    border: 2px solid rgb(192, 192, 192, 0.3);
+    border-radius: 10px;
+    margin: 0;
+    padding: 5px;
+    font-size: 1.1em;
+}
+
+#description {
+    width: 300px;
+    height: 150px;
+    font-size: 1.1em;
+    padding: 5px;
+}
+
+.buttonSend-description {
+    width: 180px;
+    margin-bottom: 0;
+}
+
+.text-deleteAccount {
+    margin-top: 20px;
+    color: rgb(51, 51, 255);
+    font-size: 0.7em;
+    cursor: pointer;
+}
+
+
+
+.button-popupDelete {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.button-popupDelete button {
+    width: 120px;
+    height: 40px;
+}
+
+/* Components / Profil / UpdateImg */
+.form-updatePicture {
+    height: 290px;
+}
+
+.container-userProfile-picture {
+    margin-top: 20px;
+    height: 230px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-account-picture {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 0.5px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.container-account-picture img {
+    width: 200px;
+    height: 200px;
+}
+
+.buttonChoice-picture {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    bottom: 80px;
+}
+
+.buttonChoice-picture i {
+    background-color: rgb(229, 226, 226);
+    color: black;
+    font-size: 0.7em;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input-file {
+    width: 40px;
+    position: relative;
+    bottom: 65px;
+    left: 80px;
+    height: 40px;
+    border-radius: 50%;
+    opacity: 0;
+}
+
+.sendUpdatePicture-user {
+    position: relative;
+    bottom: 70px;
+    border: none;
+    background-color: rgb(229, 226, 226);
+    font-size: 0.7em;
+    font-weight: bold;
+    width: 70px;
+    height: 30px;
+    border-radius: 20px;
+}
+
+/* Components / Post / allPosts */
+
+.section-title-post {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 0.8em;
+    margin-bottom: 10px;
+}
+
+.img-title-post {
+    width: 40px;
+    margin-right: 10px;
+}
+
+
+/* Components / Post / CardAllPosts */
+
+.article-post {
+    width: 90%;
+    margin: 0 0 40px 0;
+    padding: 10px 10px 0 10px;
+    background-color: rgb(250, 250, 250);
+    box-shadow: -15px -15px 15px rgb(255, 255, 255, 0.4),
+        15px 15px 15px rgb(0, 0, 0, 0.3);
+}
+
+.article-post i {
+    font-size: 0.8em;
+}
+
+.fa-spinner {
+    color: rgba(255, 0, 0, 0.726);
+    font-size: 1.5em;
+}
+
+.header-post {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.2em;
+}
+
+.header-post-user {
+    display: flex;
+    width: 50%;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.pictureUser-post {
+    width: 80px;
+    height: 80px;
+}
+
+.container-editDelete-post .fa-image {
+    font-size: 0.9em;
+    margin-top: 4px;
+    margin-right: 5px;
+}
+
+.container-editDelete-post .fa-arrow-alt-circle-down {
+    color: green;
+    margin-right: 5px;
+}
+
+.container-editDelete-post {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 1em;
+    margin-bottom: 40px;
+    width: 50%;
+}
+
+.fa-edit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    margin-right: 2px;
+}
+
+.container-datePost {
+    font-size: 0.9em;
+    display: flex;
+    justify-content: space-between;
+    font-style: italic;
+    color: rgb(143, 143, 143);
+    margin: 0;
+
+}
+
+.img-post {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.video iframe {
+    border-radius: 10px;
+}
+
+.container-commentLike {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+.block-comments {
+    margin: 0 0 0 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.fa-comment {
+    -webkit-text-stroke: 1px rgb(50, 146, 255);
+}
+
+
+.header-popup-edit-post {
+    height: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header-popup-edit-post img {
+    width: 100px;
+    height: 100px;
+}
+
+/* Components / Post / DeletePost */
+.fa-trash-alt:hover {
+    color: rgba(255, 0, 0, 0.726);
+}
+
+/* Components / Post / NewPostForm */
+.section-newPost {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.article-newPost {
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgb(63, 58, 58, 0.3);
+}
+
+.article-newPost input {
+    border-radius: 50px;
+    border: none;
+    background-color: rgb(250, 246, 246);
+}
+
+.picture-newPost {
+    margin-left: 10px;
+    width: 70px;
+    height: 70px;
+    border: 0.5px solid grey;
+}
+
+
+/* Components / Post / CarAllPost & newPostForm - article popup */
+.article-popup {
+    z-index: 5;
+    overflow-y: scroll;
+}
+
+.style-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity .4s;
+}
+
+.container-popup {
+    background: white;
+    border-radius: 5px;
+    width: 90%;
+    margin: 100px auto;
+    padding: 20px 0;
+}
+
+.delete {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.6em;
+    position: relative;
+    top: 150px;
+    padding: 8px;
+}
+
+.close-popup {
+    font-size: 0.4em;
+    font-weight: bold;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    left: 89%;
+    bottom: 17px;
+}
+
+.header-popup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-popup-newPost {
+    justify-content: flex-start;
+    margin-bottom: 20px;
+}
+
+.textPopup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.textPopup textarea {
+    height: 150px;
+    margin-bottom: 20px;
+}
+
+.img-newPost-popup {
+    margin-top: 10px;
+    width: 90%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+#containerVideo-Newpost {
+    width: 95%;
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 10px 0;
+}
+
+#closeVideo-nexPost {
+    position: absolute;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(226, 223, 223, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6em;
+    margin: 5px;
+}
+
+.video-newPost {
+    width: 100%;
+    height: 300px;
+    margin: auto;
+}
+
+.container-newPostPopup-img-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 95%;
+    margin-top: 10px
+}
+
+.newPostPopup-img {
+    width: 98%;
+    height: 30px;
+    display: flex;
+}
+
+.newPostPopup-img i {
+    position: relative;
+    bottom: 30px;
+}
+
+#comment-file-upload {
+    opacity: 0;
+    width: 25px;
+    border: none;
+    position: relative;
+    right: 25px;
+}
+
+#newPost-file-upload {
+    opacity: 0;
+    width: 25px;
+    border: none;
+    position: relative;
+    bottom: 30px;
+    right: 25px;
+}
+
+.container-newPostBtnSendCancel {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.btnNewPost {
+    width: 115px;
+    height: 35px;
+    font-weight: 600;
+}
+
+/* Components / Post / CardComment  */
+
+#article-comment {
+    overflow-y: scroll;
+    max-height: 500px;
+    border-radius: 5px;
+    margin: auto;
+}
+
+.containerComment-User {
+    margin-top: 10px;
+    width: 94%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 7px;
+    border: 0.1px solid rgb(143, 143, 143);
+    border-radius: 20px;
+    background-color: rgb(158, 157, 157, 0.4);
+
+}
+
+.containerComment-client {
+    margin-top: 10px;
+    width: 94%;
+    display: flex;
+    flex-direction: column;
+    padding: 7px;
+    border: 0.1px solid rgb(39, 39, 39);
+    border-radius: 20px;
+}
+
+.profileUser-comment {
+    display: flex;
+    justify-content: space-between;
+}
+
+.userImgName-comment {
+    display: flex;
+}
+
+.pictureUser-comment {
+    width: 40px;
+    height: 40px;
+}
+
+.userImgName-comment h4 {
+    margin: 0 5px;
+    font-weight: 600;
+}
+
+.text-comment {
+    word-wrap: break-word;
+    margin: 5px 0;
+    font-size: 1em;
+    font-weight: 500;
+}
+
+#textarea-comment {
+    margin-top: 5px;
+    height: 40px;
+    padding-top: 10px;
+    font-size: 1em;
+    width: 97%;
+}
+
+#textarea-comment::placeholder {
+    font-size: 0.9em;
+}
+
+.newCommentPopup-img {
+    height: 20px;
+}
+
+.imgComment {
+    /* border: solid black; */
+    width: 280px;
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.picture-comment {
+    border-radius: 5px;
+    width: 150px;
+    max-height: 150px;
+    object-fit: contain;
+}
+
+.close-commentImg {
+    font-size: 0.5em;
+    position: relative;
+    left: 152px;
+    top: 0px;
+}
+
+.SendComment-button {
+    font-size: 0.6em;
+    background-color: rgb(46, 45, 45);
+    width: 25%;
+    height: 30px;
+    margin: 0 0 10px 75%;
+}
+
+/* Components / Post / EditDeleteComment  */
+
+.close-editcomment {
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(226, 223, 223, 0.6);
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6em;
+    margin: 5px;
+
+}
+
+.editDelete-comment {
+    display: flex;
+    font-size: 0.7em;
+    justify-content: space-between;
+    align-items: center;
+    height: 20px;
+    margin-bottom: 5px;
+    width: 95%;
+}
+
+.date-comment {
+    font-size: 0.8em;
+    margin: 0 0 5px 5px;
+    font-style: italic;
+    color: rgb(143, 143, 143);
+}
+
+.button-editDelete-comment {
+    /* border: solid black; */
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+}
+
+.container-EditClose-button {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-bottom: 5px;
+    width: 96%;
+
+}
+
+.button-EditCloseComment {
+    font-size: 0.6em;
+    width: 90px;
+    height: 30px;
+    margin: 0 0 0 5px;
+}
+
+
+/* Components / Post / LikeButton  */
+.fa-heart {
+    -webkit-text-stroke: 1px;
+    background: linear-gradient(rgba(255, 0, 0, 0.726), #a78180);
+    background-clip: text;
+    color: transparent;
+}
+
+.heart-like {
+    -webkit-text-stroke: 0px;
+    background: linear-gradient(rgba(255, 0, 0, 0.726), #a78180);
+    background-clip: text;
+    color: transparent;
+}
+
+@media screen and (min-width:768px) and (max-width:1366px) {
+
+    /* Général - button */
+    .button {
+        font-size: 0.8em;
     }
 
-    .msg-validation{
-        color: green;
+    /* Géneral / popup */
+    .delete {
+        width: 60%;
+        font-size: 1em;
+        padding: 8px;
+    }
+
+    .close-popup {
+        font-size: 0.5em;
+        width: 30px;
+        height: 30px;
+        left: 93%;
+    }
+
+    /* Components / Navbar */
+    .header-img-groupomania {
+        width: 250px;
+    }
+
+    .navbar-burger {
+        width: 60px;
+        height: 80px;
+    }
+
+    header nav ul li {
+        font-size: 2em;
+    }
+
+    .burger-bar,
+    .burger-bar::before,
+    .burger-bar::after {
+        width: 40px;
+        height: 3px;
+    }
+
+    .show-nav .navbar-burger {
+        position: fixed;
+        right: 0;
+        top: 10px;
+    }
+
+    /* Components / Profil / ProfilUser */
+    #article-account-name-img h1 {
+        font-size: 1.4em;
+    }
+
+    .account-description {
+        height: 300px;
+    }
+
+    .account-description p {
+        width: 400px;
+        height: 250px;
+        border: 3px solid rgb(192, 192, 192, 0.3);
+        padding: 8px;
         font-size: 1.3em;
     }
-    /* toutes les pages bouton */
-    .button{
-        height: 60px;
-        width: 300px;
-        border-radius: 30px/50px;
-        border: none;
-        color: white;
-        font-size: 1.2em;
-        font-weight: 800;
-        margin: 20px 0;
-        cursor: pointer;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    /* toutes les pages photo */
-    .photo{
-        border-radius: 50%;
-        object-fit: cover;
+
+    #description {
+        width: 400px;
+        height: 250px;
+        font-size: 1.3em;
+        padding: 8px;
     }
 
-    .cadre-photo{
+    .buttonSend-description {
         width: 200px;
-        height:200px;
-        border-radius: 50%;
-        border:0.5px solid black;
-        
     }
-    /* fin de toutes les pages  */
-    
-    /* index */
 
-    /* index header */
-    .header-logo{
-        /* width: 60%; */
-        margin-left: 10px;
-        display: flex;
+    /* Components / Post / allPosts */
+    .section-title-post {
+        width: 95%;
+    }
+
+    /* Components / Post / CardAllPosts */
+    .article-post i {
+        font-size: 1em;
+    }
+
+    .fa-spinner {
+        font-size: 1.8em;
+    }
+
+    .header-post-user {
+        width: 30%;
+    }
+
+    .text-post {
+        font-size: 1.5em;
+    }
+
+    .container-editDelete-post .fa-image {
+        font-size: 1em;
+    }
+
+    .video iframe {
+        width: 680px;
+        height: 500px;
+    }
+
+    /* Components / Post / NewPostForm */
+    .article-newPost input {
+        width: 500px;
+        height: 80px;
+        padding: 0 10px;
+        font-size: 1.2em;
+    }
+
+    .article-newPost {
+        justify-content: flex-start;
+    }
+
+    .picture-newPost {
+        margin-right: 10px;
+        width: 90px;
+        height: 90px;
+    }
+
+    /* Components / Post / CardComment  */
+
+    .containerComment-User {
+        width: 70%;
+    }
+
+    .containerComment-client {
+        width: 70%;
+    }
+
+    .pictureUser-comment {
+        width: 50px;
+        height: 50px;
+    }
+
+    .text-comment {
+        font-size: 1.2em;
+    }
+
+    #textarea-comment {
+        width: 70%;
+        height: 50px
+    }
+
+    #textarea-comment::placeholder {
+        font-size: 1em;
+    }
+
+    .newComment-img {
+        height: 20px;
+    }
+
+    .picture-comment {
+        width: 200px;
+        max-height: 200px;
+    }
+
+    .close-commentImg {
+        font-size: 0.7em;
+        position: relative;
+        left: 200px;
+    }
+
+    .SendComment-button {
+        position: relative;
+        bottom: 85px;
+        left: 30px;
+        font-size: 0.9em;
+        width: 20%;
+        height: 60px;
+    }
+
+    /* Components / Post / EditDeleteComment  */
+    .editDelete-comment {
+        width: 70%;
+    }
+
+    .button-editDelete-comment {
+        width: 30%;
+    }
+
+    .container-EditClose-button {
+        width: 70%;
+    }
+
+}
+
+@media screen and (min-width:1367px) {
+
+    /* Géneral / popup */
+    .delete {
+        width: 40%;
+        font-size: 1em;
+        padding: 8px;
+        top: 350px;
+    }
+
+    .close-popup {
+        font-size: 0.5em;
+        width: 30px;
+        height: 30px;
+        left: 93%;
+    }
+
+    .button-popupDelete {
+        width: 80%;
+    }
+
+    .button-popupDelete button {
+        width: 150px;
+        height: 50px;
+        font-size: 0.8em;
+    }
+
+    .container-popup {
+        width: 30%;
+    }
+
+    .container-popup textarea {
+        width: 60%;
+    }
+
+    .header-popup-newPost {
         justify-content: center;
-        align-items: center;
-    }
-    /* index formulaire */
-    .titre-formulaire{
-        margin-top: 0;
-    }
-    
-    .bordure{
-        border-top: 1px solid black;
-        width: 250px;
         margin-bottom: 20px;
     }
-    /* index inscription */
-    .logoEntreprise{
-        display: none;
-    }
-    /* index bouton */
-    .bouton-lien{
-        background-color: white;
-        color: black;
-        margin: 0;
-        border-radius: 0;  
-        height: 40px; 
-   }
 
-    .button-connexion{
-        background-color:green;
-    }
-    
-    .button-creer-compte{
-        background-color: rgba(255, 0, 0, 0.726);
-    }
-    
-    .button-inscription{
-        background-color: green;
-        
-    }
-    
-    /* index main */
-
-    #Presentation {  
-        position: relative;
-        color: white;
-        height: 300px;
-        width: 100%;  
-        font-size: 1.2em;
-    }
-    
-    .imgEntreprise{ 
-        position: absolute;;
-        width: 100%;
-        height: 300px;
+    .img-newPost-popup {
+        margin-top: 10px;
+        width: 60%;
+        border-radius: 10px;
         object-fit: cover;
     }
-    
-    .cadre{
-        position: relative;
-        width: 100%;
-        height: 300px;
-        background-color: black;
-        opacity: 0.4;
+
+    .close-popup {
+        left: 88%;
     }
-    
-    .centrerPresentation {
-        border:  3px solid white;
+
+    .newPostPopup-img i {
+        position: relative;
+        bottom: 30px;
+        left: 75px;
+    }
+
+    #newPost-file-upload {
+        left: 55px;
+    }
+
+    .container-newPostBtnSendCancel {
+        display: flex;
+        justify-content: space-between;
+        width: 60%;
+    }
+
+    /* Components / Navbar */
+
+    .header-container-img {
+        width: 70%;
+    }
+
+    .header-img-groupomania {
+        width: 400px;
+    }
+
+    /* Pages / Home */
+    #main-log {
+        display: flex;
+        flex-direction: row;
+        height: 85vh;
+        margin: 0 10px;
+    }
+
+    #log-presentation {
+        width: 75%;
+        height: 715px;
+        margin-right: 10px;
+    }
+
+    #main-log div img {
+        height: 715px;
+    }
+
+    .log-box {
+        height: 715px;
+    }
+
+    /* #main-log div h1 {
+        border: 3px solid white;
         background-color: transparent;
         width: 90%;
         height: 300px;
@@ -218,701 +1334,153 @@
         transform: translate(-50%, -50%);
         border: none;
         opacity: 2;
-    }
+    } */
 
-    .form-accueil{
-        /* border: solid black; */
-        display: flex;
-        flex-direction: column-reverse;
-       
-    }
-
-       .bouton-accueil{
-       /* border: solid black; */
-       font-size: 0.8em;
-       display: flex;
-       flex-direction: column;
-       justify-content: center;
-       align-items: center;
-       margin:10px 0 50px 0;
-       
-      
-   }
-    .connexion{
-        margin: 20px 0;
-        display: flex;
-        flex-direction: column;
+    /* Components / Log / index */
+    #form-container {
+        margin: 10px;
+        width: 45%;
         justify-content: center;
         align-items: center;
-    }
-    
-    
-    /* fin index */
-    
-    /* accueil */
-    /* accueil page publication */
-    section{
-        margin-bottom: 30px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .titre-section{
-        width: 50%;
-        display: flex;
-        font-size: 0.8em;
-        margin:0 170px 0 0 ;
-    }
-    
-    .logo-post{
-        width: 40px;
-        object-fit: cover;
-        margin-right: 10px;
-    }
-    
-
-    .fa-spinner{
-        color: rgba(255, 0, 0, 0.726);
-        font-size: 1.5em;
+        height: 660px;
+        border-radius: 10px;
+        box-shadow: 5px 5px 5px 5px rgb(0, 0, 0, 0.3);
     }
 
-    .article-post{
-        width: 90%;
-        /* height:400px; */
-        margin: 0 0 40px 0;
-        padding: 10px 10px 0 10px;
-        border-radius: 20px;
-        box-shadow: 10px 20px 20px 10px rgb(0 0 0 / 15%);  
+    /* Components / Profil / ProfilUser */
+    .account-description p {
+        width: 400px;
+        height: 250px;
     }
 
-    .article-post-popup{
-        position: absolute;
-    }
-    
-    .date-publication{
-        display: flex;
-        justify-content: space-between;
-    }
-    
-    .header-post{    
-       display: flex;
-       align-items: center;
-       justify-content: space-between;
-        font-size: 1.2em;
-        
+    #description {
+        width: 400px;
+        height: 250px;
     }
 
-    .button-modify-post{
-        display: flex;
-        justify-content:space-between;
-        align-items:center;
-        font-size: 0.9em;
-        width: 17%;
-        margin-bottom: 40px;
-    }
+    /* Components / Post / allPosts */
 
-    .fa-trash-alt{
-        color: red;
-    }
-
-    .fa-edit{
-        display: flex;
-        justify-content:center;
-        align-items: center;
-        width: 30px;
-        height: 30px;
-        
-    }
-
-  
-
-    .header-user-post{
-        display: flex; 
-        width: 50%;
-        justify-content: space-around;
-    }
-
-  
-
-
-    .photo-post{
-        width: 80px;
-        height: 80px;
-    }
-    
-    .img-post{
-        object-fit: cover;
-        width: 100%;
-        border-radius: 5px;
-    }
-
-    .video{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .bloc-commentaire{
-        margin: 0 0 10 0;
-        display: flex;
-        justify-content: flex-end;
-    }
-
-    .comment-User{
-        display:flex;
-        align-items:center;
-        border:0.2px solid rgb(143, 143, 143);;
-        border-radius:50px;
-        /* padding: 5px; */
-        height: 45px;
-        margin-bottom: 10px;
-        background-color:  rgba(255, 0, 0, 0.2);
-    }
-
-    .comment-client{
-        display:flex;
-        align-items:center;
-        border:0.1px solid rgb(143, 143, 143);
-        border-radius:50px;
-        height: 45px;
-        margin-bottom: 10px;
-    }
-
-    .photo-comment{
-        /* position:relative; */
-        /* bottom: 10px; */
-        /* right: 5px;  */
-        /* top:80px; */
-        margin-left: 3px;;
-        width:40px;
-        height:40px;
-        border-radius:50%;
-        object-fit: cover;
-    }
-    .comment-User p{
-        margin-left:8px;
-        font-size:1em;
-
-    }
-
-    
-
-    .updateMessage{
-        display: flex;
-        flex-direction: column;
-        justify-content:center;
-        align-items: center;
-    }
-
-    .button-valid-update{
-        background-color:green;
-        width: 250px;
-        height:50px;
-        font-size: 1em;
-        border-radius: 50px 0px 50px 50px ;
-    }
-   
-
-    .fa-comment{
-
-        color:black;
-        font-size: 1.3em;
-    }
-    
-    #form-commentaire{
-        width: 100%;
-        height: 40px;    
-    }
-    
-    
-    /* accueil page publication bouton*/
-    
-    .button-commentaire{
-        background-color:rgb(46, 45, 45);
-        width: 30%;
-    }
-    
-    /* accueil création d'une publication*/
-    .nouveau-post-accueil{
+    .section-title-post {
+        width: 42%;
         margin-bottom: 20px;
     }
-    /* fin accueil */
-    
-    /* accueil + compte header navigation */
-    .header-navigation{
+
+    /* Components / Post / CardAllPosts */
+    .article-post {
+        width: 40%;
+    }
+
+    .pictureUser-post {
         margin-right: 10px;
-        width: 180px;
-        display: flex;
-        justify-content: flex-end;
-     
-    }
-    
-    .header-navigation-liste{
-       display: flex;
-       justify-content: space-between;
-       width: 120px;
-    }
-    
-    /* accueil + compte création d'une publication */
-    .nouveau-post{
-        margin-top: 10px;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        width: 95%;
-        height: 60px;
-        border-radius: 20px;
-        box-shadow: 0px 5px 5px 0px rgb(0 0 0 / 15%);  
-    }
-    
-    .photo-nouveau-post{
-        width: 40px;
-        height: 40px;
-    }
-    /* accueil + compte création d'une publication bouton  */
-    .button-nouveau-post{
-        display: flex;
-        align-items: center;
-        color: rgb(75, 74, 74);
-        font-size: 1.2em;
-        text-align: left;
-        padding: 0 10px;
-        border-radius: 50px;
-        width: 270px;
-        height: 40px;
-        border: 0;
-        background-color: rgba(240, 240, 240, 0.541);
-        cursor: pointer;
-        text-decoration: none;
-    }
-    /* accueil + compte création d'une publication popup */
-  
-    .style-popup{
-        position: fixed;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        background: rgba(0, 0, 0, 0.7);
-        transition: opacity .4s;
-        /* visibility: hidden; */
-        /* opacity: 0; */
     }
 
-
-    .header-post-popup{
-        display: flex;
-        justify-content:center;
-        align-items: center;
-    }
-    
-    .close-popup{
-     display: flex;
-     justify-content: flex-end;
-     width: 95%;
-     color:red;
-     margin-bottom: 10px;
-     
-    }
-    
-    .photo-form{
-        height: 80px;
-        width: 80px;
-    }
-    .bloc-popup{
-        background: white;
-        border-radius: 20px;
-        width: 90%;
-        margin:100px  auto;
-        padding: 20px 0;
-    }
-    
-    .form-popup textarea{
-        height: 100px;
-        /* font-family: Arial, Helvetica, sans-serif; */
-    }
-    
-    
-    .fermer-popup{
-        text-decoration: none;
-        font-size: 2em;
-        color: black;
-        font-weight: bold;
-        position: relative;
-        bottom: 90px;
-        left: 140px;
-    }
-    /* fin accueil + compte création d'une publication  */
-    
-    /* compte */ 
-    .fa-camera{
-    
-        position:relative;
-        bottom: 10%;
-        left:20%;
-        background-color: rgb(229, 226, 226);
-        color: black;
-        font-size: 0.7em;
-        width:120px;
-        height:40px;
-        border-radius:20px;
-        display: flex;
-        align-items: center;
-        justify-content:center;   
-    }
-
-    .fa-camera p{
-        margin-left: 10px;
-    }
-
-    .input-file{
-         display: none;
-    }
-
-    .fa-pencil-alt{ 
-        font-size: 0.6em;
-        border-radius: 50%;
-        background-color:rgb(229, 226, 226) ;
-        width: 30px;
-        height: 30px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .bouton-modifier-photo{
-        position: absolute;
-        top: 72%;
-        left:85%;
-        
-       
-    }
-    .article-compte{
+    .container-imgPost {
         width: 100%;
         display: flex;
-        flex-direction: column;
         justify-content: center;
-        align-items: center;
     }
 
-    .bloc-description{
-
-        border:0.5px solid black;
-        width: 80%;
-        border-radius: 20px;
-        height: 150px;
+    .img-post {
+        width: 95%;
     }
 
-    .bloc-description p{
-        margin-left: 10px;
-        font-size:1.5em;
+    /* Components / Post / NewPostForm */
+    .article-newPost {
+        width: 40%;
+        justify-content: center;
+        margin-bottom: 20px;
     }
-    
-    .textarea-description{
+
+    .article-newPost input {
+        width: 500px;
+        height: 70px;
+        font-size: 1.1em;
+        cursor: pointer;
+    }
+
+    .picture-newPost {
+        width: 100px;
         height: 100px;
+        margin-right: 10px;
     }
-    
-    /* compte lien vers toutes les publications */
-    .compte-lien-publication{
-        display: flex;
-        justify-content: space-between;
-        width: 180px;
-        color: rgb(95, 95, 248);
-        cursor: pointer;
+
+    .container-commentLike {
+        font-size: 1.4em;
     }
-    
-    .fa-chevron-down{
-        margin-top: 5px;
-        font-size: 0.8em;
-        color: rgb(95, 95, 248);
+
+    .video iframe {
+        width: 700px;
+        height: 500px;
     }
-    
-    /* compte page toutes les publications*/
-    .profil-compte{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        font-size: 1.5em;   
-        margin-top: 20px;
+
+
+    /* Components / Post / CardComment  */
+    .containerComment-User {
+        width: 70%;
     }
-    
-    .photo-compte{
-        width: 200px;
-        height: 200px;
+
+    .containerComment-client {
+        width: 70%;
     }
-    
-    .article-compte{
-        padding-bottom: 10px;
+
+    .pictureUser-comment {
+        width: 50px;
+        height: 50px;
     }
-    
-    .modifier-post{
-        display: flex;
-        justify-content: space-between;
+
+    .userImgName-comment h4 {
+        font-size: 1.2em;
     }
-    
-    .modifier{
-        width: 60px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+
+    .text-comment {
+        font-size: 1.4em;
     }
-    /* compte page toutes les publications bouton */
-    .button-modification{
-        border: 0;
-        background-color: white;
+
+    #textarea-comment {
+        height: 60px;
+        font-size: 1.2em;
+        width: 97%;
+    }
+
+    .picture-comment {
+        width: 220px;
+        max-height: 220px;
+    }
+
+    .close-commentImg {
+        left: 220px;
+    }
+
+    .SendComment-button {
         font-size: 1em;
-        cursor: pointer;
-    }
-    
-    /* fin compte */
-
-    @media screen and  (min-width:768px) {
-        /* navigation */
-        .navigation{
-            /* border: solid black; */
-            width: 25%;
-            margin-right: 30px;
-        }
-        
-        /* icônes */
-        i{
-            font-size: 1.3em;
-        }
-        .fa-arrow-left{
-            font-size: 1.5em;
-         }
-        /* fin des icônes */
-        
-        /* toutes les pages */
-        /* header, main; footer */
-        
-        /* toutes les pages logo header */
-        .logo-groupomania{
-            width: 300px;
-        }
-        
-        /* fin de toutes les pages  */
-        
-        /* index */
-        /* index header */
-        .header-logo{
-            width: 70%;
-            margin-left: 20px;
-        }
-
-        /* index formulaire */
-        .titre-formulaire{
-            font-size: 1.7em;
-        }
-        
-        .bordure{
-            margin-bottom: 40px;
-        }
-        /* index inscription */
-        .logoEntreprise{
-            display: block;
-            width: 40%;
-            padding: 0 6% 0 4%;
-            border-right: 1px solid rgb(46, 45, 45)
-        }
-        
-        .inscription{
-            width: 30%;
-            margin: auto;
-        }
-        /* index bouton */
-        
-        /* index main */
-        
-        #main-connexion{
-            display: flex;
-            justify-content: space-around;
-        }
-
-        #Presentation {    
-            height: 600px;
-            width: 60%;  
-            margin: 20px 0;
-        }
-        
-        .imgEntreprise{ 
-            height: 600px;
-        }
-        
-        .centrerPresentation {
-            top: 50%;
-            left: 57%;
-        }
-        
-        .cadre{ 
-            height: 600px;
-        }
-        
-        .form-accueil{
-            /* border: solid black; */
-            width: 35%;
-            flex-direction: column-reverse;
-            justify-content: none;
-            align-items: center;  
-            border-radius: 20px;
-            box-shadow: 0px 10px 10px 5px rgb(0 0 0 / 25%);  
-            margin-top: 20px;
-            height: 600px;
-           
-        }
-    
-           .bouton-accueil{
-           height: 100px;
-           display: flex;
-           flex-direction: column;
-           /* justify-content:flex-start; */
-           align-items: center;
-           margin:0 0 40px 0 ;
-           width: 100%;
-           
-          
-       }
-       .bouton-lien{
-        background-color: white;
-        color: black;
-        margin: 0;
-        border-bottom: 0.5px solid black;
-        width: 47%;  
-   }
-
-   .bouton-lien-connexion{
-       /* background-color:rgb(46, 45, 45);; */
-       border: 0;
-      
-   }
-
-   .bouton-lien-inscription{  
-       /* background-color:rgba(255, 0, 0, 0.726); */
-       border: 0;
-   } 
-        /* fin index */
-        
-        /* accueil */
-        /* accueil page publication */
-        .main-accueil{
-            flex-direction: column;
-        }
-        
-        #Post{
-            width: 80%;
-        }
-        
-        .titre-section{
-            margin:0 400px 40px 0;
-        }
-        
-        .article-post{
-            width: 75%;
-        
-        }
-        
-        .profil-post{
-            display: flex;
-            width: 20%;
-            font-size: 1.5em;
-            justify-content: space-between;
-        }
-        
-        .photo-post{
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-        }
-        
-        #form-commentaire{
-            width: 99.5%;   
-        }
-        
-        /* accueil création d'une publication*/
-        
-        
-        /* fin accueil */
-        
-        /* accueil + compte header navigation */
-        .header-navigation{
-            width: 500px;
-         
-        }
-        
-        .header-navigation-liste{
-           display: flex;
-           justify-content: space-between;
-           width: 300px;
-        }
-        /* accueil + compte création d'une publication */
-        
-        .nouveau-post{ 
-            width: 60%;
-            height: 100px;
-            justify-content: center;
-        }
-        
-        .photo-nouveau-post{
-            width: 70px;
-            height: 70px;
-        }
-        
-        .button-nouveau-post{
-            padding: 0 20px;
-            width: 900px;
-            height: 70px;
-            margin-left: 20px;
-        }
-        /* accueil + compte création d'une publication popup */
-        .photo-form{
-            height: 100px;
-            width: 100px;
-        }
-        
-        .form-popup{
-            width: 30%;
-            margin: 100px auto;
-            padding: 20px 0;
-        }
-        
-        .input-titre-popup{
-            width: 80%;
-        }
-        .input-message-popup{
-            height: 250px;
-            width: 80%;
-        }
-        
-        .fermer-popup{
-            text-decoration: none;
-            font-size: 2em;
-            color: black;
-            font-weight: bold;
-            position: relative;
-            bottom: 110px;
-            left: 255px;
-        }
-        /* fin accueil + compte création d'une publication  */
-        
-        /* compte */
-        
-        /* compte page toutes les publications*/
-        .main-compte{
-            display: flex;
-            flex-direction: column;
-        }
-        /* compte création d'une publication*/
-        .nouveau-post-compte{
-            margin-left:0;
-            width: 65%;
-        }
-        
-        /* fin compte */
+        height: 50px;
     }
 
-   
+    /* Components / Post / EditDeleteComment  */
 
-   
+    .editDelete-comment {
+        margin-top: 5px;
+        ;
+        width: 70%;
+    }
+
+    .date-comment {
+        font-size: 1em;
+    }
+
+    .button-editDelete-comment {
+        width: 25%;
+    }
+
+    .container-EditClose-button {
+        width: 98%;
+    }
+
+    .button-EditCloseComment {
+        font-size: 0.8em;
+        width: 120px;
+        height: 50px;
+        margin: 0 0 0 10px;
+    }
+
+}

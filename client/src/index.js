@@ -10,7 +10,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import logger from 'redux-logger';
 import { getUsers } from './actions/users.action';
 
-
+const rootNode = document.getElementById('root');
 const store = createStore(
   rootReducer, composeWithDevTools(applyMiddleware(thunk, logger))
 )
@@ -20,6 +20,6 @@ ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById('root')
+  rootNode
 );
 

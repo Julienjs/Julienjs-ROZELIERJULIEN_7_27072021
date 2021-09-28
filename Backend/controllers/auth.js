@@ -11,7 +11,6 @@ exports.signup = (req, res) => {
             const user = new User({
                 username: req.body.username,
                 email: req.body.email,
-                // imageUrlUser: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`,
                 description: req.body.description,
                 password: hash
             });
@@ -38,8 +37,9 @@ exports.login = (req, res) => {
                     res.status(200).json({
                         userId: user.id,
                         message: 'vous êtes connecté',
+                        isAdmin: user.isAdmin,
                         token: jwt.sign(
-                            { userId: user.id },
+                            { userId: user.id, isAdmin: user.isAdmin },
                             '4bea540f75ac82d5dfea72aefd96d3c9',
                             { expiresIn: '24h' }
                         )

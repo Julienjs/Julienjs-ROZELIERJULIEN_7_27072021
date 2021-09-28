@@ -1,6 +1,6 @@
 
 const fs = require('fs');
-const { Post, User, Comment } = require('../models/index');
+const { Post, User, Comment, Likes, LikesComments } = require('../models/index');
 
 //création d'un commentaire
 exports.createComment = (req, res) => {
@@ -12,8 +12,9 @@ exports.createComment = (req, res) => {
         userId: req.token.userId,
         postId: req.params.postId,
         comment: req.body.comment,
-        imageUrl: imageUrl
+        imageUrl: imageUrl,
     });
+
     comment.save()
         .then((comment) => res.status(201).json(comment))
         .catch(error => res.status(400).json({ error: error }));
@@ -30,7 +31,7 @@ module.exports.deleteComment = (req, res, next) => {
         .catch(error => res.status(400).json({ error: error() }));
 };
 
-//modifier un
+//modifier un commentaire
 module.exports.modifyComment = (req, res, next) => {
     let imageUrl = null;
     if (req.file) {
@@ -38,47 +39,30 @@ module.exports.modifyComment = (req, res, next) => {
     }
     Comment.update(
         {
-            comment: req.body.message,
+            comment: req.body.comment,
             imageUrl: imageUrl
         },
         {
             where: { id: req.params.id }
         }
     )
-        .then(() => res.status(200).json({ message: 'Publication modifiée' }))
+        .then(() => res.status(200).json({ message: 'Commentaire modifiée' }))
         .catch(error => res.status(400).json({ error: error() }));
 };
 
-//récuperer un commentaire par son id
-// exports.findOneComment = (req, res) => {
-//     Comment.findAll({
-//         where: {
-//             id: req.params.id
-//         }
-//     })
-//         .then(post => res.status(200).json(post))
-//         .catch(error => res.status(400).json({ error: error }));
-// };
+exports.getAllComments = (req, res, next) => {
+    Comment.findAll({
+        where: { postId: req.params.id },
+        include:
+        {
+            model: LikesComments
+        }
 
-//tout les post
-// module.exports.getAllComments = (req, res, next) => {
-//     Comment.findAll({
-//         where: { id: req.params.id }
-//     })
-//         .then(Comments => res.status(200).json({ message: 'Toutes les commentaires', Comments }))
-//         .catch(error => res.status(400).json({ error: error }));
-// };
+    })
+        .then(comment => res.status(200).json(comment))
+        .catch(error => res.status(400).json({ error: error }));
+};
 
-// // supprimer un post 
-// module.exports.deletePost = (req, res, next) => {
-//     Post.destroy({
-//         where: {
-//             id: req.params.id
-//         }
-//     })
-//         .then(() => res.status(200).json({ message: 'Publication supprimé' }))
-//         .catch(error => res.status(400).json({ error: error() }));
-// };
 
 
 

@@ -3,6 +3,7 @@ const app = express();
 const postRoutes = require('./routes/post');
 const userRoutes = require('./routes/user');
 const userComment = require('./routes/comment');
+const likeRoutes = require('./routes/likes');
 const path = require('path');
 require('dotenv').config({ path: './.env' });
 const { load } = require('./models/index');
@@ -18,9 +19,11 @@ app.use((req, res, next) => {
 
 app.use(express.json());
 app.use('/images', express.static(path.join(__dirname, 'images')));
+
 app.use('/api/post', postRoutes);
 app.use('/api/auth', userRoutes);
 app.use('/api/comment', userComment);
+app.use('/api/like', likeRoutes)
 
 
 module.exports = app;

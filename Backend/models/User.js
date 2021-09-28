@@ -26,6 +26,11 @@ const User = database.define("User", {
     description: {
         type: DataTypes.STRING,
         allowNull: true
+    },
+    isAdmin: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: false
     }
 
 });

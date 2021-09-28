@@ -1,6 +1,8 @@
-// const Sauce = require('../models/Sauce');
 const fs = require('fs');
-const { Post, User, Comment } = require('../models/index');
+const { Post, User, Comment, Likes, LikesComments } = require('../models/index');
+const jwt = require("jsonwebtoken");
+require('dotenv').config;
+
 
 //création d'un poste
 exports.createPost = (req, res) => {
@@ -11,7 +13,8 @@ exports.createPost = (req, res) => {
     const post = new Post({
         userId: req.token.userId,
         message: req.body.message,
-        imageUrlPost: imageUrl
+        imageUrlPost: imageUrl,
+        video: req.body.video
     });
 
     post.save()
@@ -23,7 +26,25 @@ exports.createPost = (req, res) => {
 //tout les post
 module.exports.getAllPost = (req, res, next) => {
     Post.findAll({
-        include: [User, { model: Comment, include: User }]
+        include: [User,
+            {
+                model: Comment,
+
+                include: [User, {
+                    model: LikesComments
+                }]
+            },
+            {
+                model: Likes,
+
+            }
+        ],
+        order: [
+            ["createdAt", "DESC"],
+            [
+                Comment, "createdAt"
+                , "DESC"]
+        ]
     })
         .then(posts => res.status(200).json({ message: 'Toutes les publications', posts }))
         .catch(error => res.status(400).json({ error: error }));
@@ -31,13 +52,27 @@ module.exports.getAllPost = (req, res, next) => {
 
 // supprimer un post 
 module.exports.deletePost = (req, res, next) => {
-    Post.destroy({
+    Post.findOne({
         where: {
-            id: req.params.id
+            id: req.params.id,
+
         }
     })
-        .then(() => res.status(200).json({ message: 'Publication supprimé' }))
-        .catch(error => res.status(400).json({ error: error() }));
+        // 
+        .then(post => {
+            if (post.userId || req.token.user.isAdmin) {
+                Post.destroy({
+                    where: {
+                        id: req.params.id,
+                    }
+                })
+                    .then(() => res.status(200).json({ message: 'Publication supprimé' }))
+                    .catch(error => res.status(400).json({ error: error() }));
+            } else {
+                res.status(403).json({ message: `Vous n'avez pas les droits pour supprimer ce post ` });
+            }
+        })
+        .catch(error => res.status(400).json({ error: error }));
 };
 
 //récuperer un post par son id
@@ -53,13 +88,27 @@ exports.findOnePost = (req, res) => {
 
 //modifier un post
 module.exports.modifyPost = (req, res, next) => {
+
+    Post.update(
+        {
+            message: req.body.message,
+
+        },
+        {
+            where: { id: req.params.id }
+        }
+    )
+        .then(() => res.status(200).json({ message: 'Publication modifiée' }))
+        .catch(error => res.status(400).json({ error: error() }));
+};
+
+module.exports.modifyImagePost = (req, res, next) => {
     let imageUrl = null;
     if (req.file) {
         imageUrl = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`;
     }
     Post.update(
         {
-            message: req.body.message,
             imageUrlPost: imageUrl
         },
         {
@@ -69,3 +118,4 @@ module.exports.modifyPost = (req, res, next) => {
         .then(() => res.status(200).json({ message: 'Publication modifiée' }))
         .catch(error => res.status(400).json({ error: error() }));
 };
+

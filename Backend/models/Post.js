@@ -16,6 +16,7 @@ const Post = database.define("Post", {
         type: DataTypes.STRING,
         allowNull: true
     }
+
 });
 
 module.exports = Post;
