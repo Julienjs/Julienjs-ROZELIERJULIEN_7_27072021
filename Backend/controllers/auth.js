@@ -40,7 +40,7 @@ exports.login = (req, res) => {
                         isAdmin: user.isAdmin,
                         token: jwt.sign(
                             { userId: user.id, isAdmin: user.isAdmin },
-                            '4bea540f75ac82d5dfea72aefd96d3c9',
+                            process.env.JWT_SECRET,
                             { expiresIn: '24h' }
                         )
                     });
