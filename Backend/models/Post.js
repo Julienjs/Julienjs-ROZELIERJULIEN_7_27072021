@@ -15,7 +15,17 @@ const Post = database.define("Post", {
     video: {
         type: DataTypes.STRING,
         allowNull: true
-    }
+    },
+
+    // likes: {
+    //     type: DataTypes.NUMBER,
+    //     allowNull: true
+    // },
+
+    // usersLiked: {
+    //     type: [DataTypes.STRING],
+    //     allowNull: true
+    // }
 
 });
 

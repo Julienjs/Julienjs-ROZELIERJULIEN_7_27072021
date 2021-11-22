@@ -4,7 +4,7 @@ const authCtrl = require('../controllers/auth');
 const usersCtrl = require('../controllers/user');
 
 
-const { rules, validate } = require('../middleware/validator');
+const { rules, rulesPassword, validate } = require('../middleware/validator');
 const multer = require('../middleware/multer-config');
 // router.post('/signup', userCtrl.signup);
 router.post('/signup', rules(), validate, multer, authCtrl.signup);
@@ -12,8 +12,16 @@ router.post('/login', authCtrl.login);
 router.get('/', usersCtrl.getAllUsers);
 router.get('/:id', usersCtrl.IdUser);
 router.delete('/:id', usersCtrl.deleteUser);
-router.put('/:id', multer, usersCtrl.modifyProfil);
+router.put('/:id', usersCtrl.modifyProfil);
 router.put('/:id/image', multer, usersCtrl.updateImg);
+router.put('/:id/changepassword', rulesPassword(), validate, usersCtrl.changePassword);
+router.get('/:id/resetPassword', usersCtrl.resetPassword);
+router.post('/forgotPassword', usersCtrl.forgotPassword);
+router.put('/:id/changePasswordViaEmail', rulesPassword(), validate, usersCtrl.changePasswordViaEmail);
+
+
+
+
 
 
 

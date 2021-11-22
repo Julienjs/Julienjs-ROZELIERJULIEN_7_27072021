@@ -53,11 +53,6 @@ module.exports.modifyComment = (req, res, next) => {
 exports.getAllComments = (req, res, next) => {
     Comment.findAll({
         where: { postId: req.params.id },
-        include:
-        {
-            model: LikesComments
-        }
-
     })
         .then(comment => res.status(200).json(comment))
         .catch(error => res.status(400).json({ error: error }));

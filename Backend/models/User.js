@@ -18,6 +18,16 @@ const User = database.define("User", {
         allowNull: false
     },
 
+    resetPasswordToken: {
+        type: DataTypes.STRING,
+        allowNull: true
+    },
+
+    resetPasswordExpires: {
+        type: DataTypes.STRING,
+        allowNull: true
+    },
+
     imageUrlUser: {
         type: DataTypes.STRING,
         allowNull: true

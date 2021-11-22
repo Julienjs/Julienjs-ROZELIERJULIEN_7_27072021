@@ -1,6 +1,5 @@
 const fs = require('fs');
-const { Post, User, Comment, Likes, LikesComments } = require('../models/index');
-const jwt = require("jsonwebtoken");
+const { Post, User, Comment, Likes } = require('../models/index');
 require('dotenv').config;
 
 
@@ -29,14 +28,9 @@ module.exports.getAllPost = (req, res, next) => {
         include: [User,
             {
                 model: Comment,
-
-                include: [User, {
-                    model: LikesComments
-                }]
             },
             {
                 model: Likes,
-
             }
         ],
         order: [
@@ -58,7 +52,7 @@ module.exports.deletePost = (req, res, next) => {
 
         }
     })
-        // 
+
         .then(post => {
             if (post.userId || req.token.user.isAdmin) {
                 Post.destroy({
@@ -92,7 +86,6 @@ module.exports.modifyPost = (req, res, next) => {
     Post.update(
         {
             message: req.body.message,
-
         },
         {
             where: { id: req.params.id }
@@ -118,4 +111,11 @@ module.exports.modifyImagePost = (req, res, next) => {
         .then(() => res.status(200).json({ message: 'Publication modifiée' }))
         .catch(error => res.status(400).json({ error: error() }));
 };
+
+
+// module.exports.LikePost = (req, res, next) => {
+
+// };
+
+
 

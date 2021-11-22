@@ -6,11 +6,11 @@ const multer = require('../middleware/multer-config');
 
 //créer un objet
 router.post('/:id', auth, multer, postCtrl.createPost);
-router.get('/', postCtrl.getAllPost);
-router.get('/:id', postCtrl.findOnePost);
-router.delete('/:id', postCtrl.deletePost);
-router.put('/:id', multer, postCtrl.modifyPost);
-router.put('/:id/image', multer, postCtrl.modifyImagePost);
+router.get('/', auth, postCtrl.getAllPost);
+router.get('/:id', auth, postCtrl.findOnePost);
+router.delete('/:id', auth, postCtrl.deletePost);
+router.put('/:id', auth, multer, postCtrl.modifyPost);
+router.put('/:id/image', auth, multer, postCtrl.modifyImagePost);
 // router.post('/:id/like', auth, postCtrl.postLike);
 
 

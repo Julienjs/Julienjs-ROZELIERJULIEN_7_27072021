@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllPosts } from '../../actions/post.action';
-import { isEmpty } from '../outils'
+import { isEmpty } from '../Utils'
 import CardAllPosts from './CardAllPosts';
+import "./Post.css"
+import image from '../../logo/icon.png';
+
+
+
 
 const AllPosts = () => {
     const [count, setCount] = useState(5);
@@ -30,15 +35,24 @@ const AllPosts = () => {
     return (
         <section id="section-post">
             <div className="section-title-post">
-                <img className="img-title-post" src="logo/icon.png" alt="logo d'entreprise" />
+                <img src={image} alt="logo" width="40px" />
                 <h2>Fil d'actualité</h2>
             </div>
+            {AllPosts.length === 0 &&
+                <>
+                    <p>Il n'y a pas de publication...</p>
+                    <p>Soyez le premier à publier !</p>
+                    <img width="400px" src={image} alt="logo entreprise"></img>
+                </>
+            }
             {!isEmpty(AllPosts[0]) &&
                 AllPosts.map((post) => {
                     return <CardAllPosts post={post} key={post.id} />
                 })
             }
-        </section>
+
+
+        </section >
     )
 };
 export default AllPosts;

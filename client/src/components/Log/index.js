@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import SignIn from './SignIn';
 import SignUp from './SignUp';
-
-
+import "./Log.css"
 
 const Log = (props) => {
     const [signUpModal, setSignUpModal] = useState(props.signup);

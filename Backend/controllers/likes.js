@@ -1,4 +1,4 @@
-const { Likes } = require("../models/index");
+const { Likes, Post } = require("../models/index");
 
 
 exports.addlike = async (req, res, next) => {
@@ -17,18 +17,5 @@ exports.addlike = async (req, res, next) => {
     res.json({ liked: false })
 }
 
-exports.addlikeComment = async (req, res, next) => {
-    const { PostId } = req.body;
-    const UserId = req.token.userId;
-    const found = await Likes.findOne({ where: { PostId: PostId, UserId: UserId } });
-    if (!found) {
-        await Likes.create({ PostId: PostId, UserId: UserId });
-        res.json({ liked: true })
-    }
-    else {
-        await Likes.destroy({
-            where: { PostId: PostId, UserId: UserId },
-        });
-    }
-    res.json({ liked: false })
-}
+
+

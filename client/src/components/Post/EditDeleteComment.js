@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 // import { UidContext } from "../AppContext";
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteComment, editComment } from '../../actions/post.action';
-import { dateParser } from '../outils';
+import { dateParser } from '../Utils';
 
 
 
@@ -15,7 +15,6 @@ const EditDeleteComment = ({ comment, postId }) => {
 
 
     const handleEdit = () => {
-
         if (text) {
             dispatch(editComment(comment.id, text))
             setText(" ")
@@ -50,7 +49,7 @@ const EditDeleteComment = ({ comment, postId }) => {
                 )}
             </div>
             {isAuthor && edit && (
-                <>
+                <div>
                     <textarea name="comment" id="textarea-comment"
                         onChange={(e) => setText(e.target.value)}
                         defaultValue={comment.comment}
@@ -60,9 +59,10 @@ const EditDeleteComment = ({ comment, postId }) => {
                         <button className="button green-button button-EditCloseComment" onClick={handleEdit}>Envoyer</button>
                         <button className="button red-button button-EditCloseComment" onClick={() => setEdit(!edit)}>Annuler</button>
                     </div>
-                </>
-            )}
-        </div>
+                </div>
+            )
+            }
+        </div >
 
     )
 };

@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllPosts, addComment } from '../../actions/post.action';
-import { isEmpty } from '../outils';
+import { isEmpty } from '../Utils';
 import EditDeleteComment from './EditDeleteComment';
 import avatar from '../../avatar/avatar.jpg';
 
@@ -13,17 +13,12 @@ const CardComment = ({ post }) => {
     const [image, setImage] = useState();
     const userData = useSelector((state) => state.userReducer);
     const usersData = useSelector((state) => state.usersReducer);
-
+    const inputRef = useRef();
     const dispatch = useDispatch();
 
-    // const handleComment = (e) => {
-    //     e.preventDefault()
-    //     if (text) {
-    //         dispatch(addComment(post.id, userData.id, text, userData.username))
-    //             .then(() => dispatch(getAllPosts()))
-    //             .then(() => setText(''));
-    //     }
-    // };
+    const triggerFile = () => {
+        inputRef.current.click();
+    }
 
     const handleComment = async () => {
         if (comment || commentImg) {
@@ -47,6 +42,7 @@ const CardComment = ({ post }) => {
 
     const handleDeleteImg = () => {
         setCommentImg('');
+        setImage('')
     }
 
 
@@ -56,53 +52,86 @@ const CardComment = ({ post }) => {
             <article id="article-comment" >
                 {post.Comments.map((comment) => {
                     return (
-                        <div className="container-comments" key={comment.id}>
-                            <div className={comment.userId === userData.id ?
-                                "containerComment-User" : "containerComment-client"}
-                            >
-                                <div className="profileUser-comment">
-                                    <div className="userImgName-comment">
-                                        < img className="picture pictureUser-comment" src={comment.User.imageUrlUser === null ?
-                                            (avatar)
-                                            : (
-                                                !isEmpty(usersData[0]) &&
-                                                usersData.map((user) => {
-                                                    if (user.id === comment.userId) return user.imageUrlUser;
-                                                    else return null;
-                                                }).join('')
-                                            )} alt="utilisateur img" />
-                                        <h4>{comment.User.username}</h4>
-                                    </div>
+                        <div className="comments" key={comment.id}>
+                            <div style={{ display: "flex", alignItems: "center" }}>
+                                < img className="picture pictureUser-comment"
+                                    src={userData.imageUrlUser === null ?
+                                        (avatar)
+                                        : (
+                                            !isEmpty(usersData[0]) &&
+                                            usersData.map((user) => {
+                                                if (user.id === comment.userId)
+                                                    return user.imageUrlUser;
+                                                else return null;
+                                            }).join('')
+                                        )} alt="utilisateur img" />
+                                <div className={`containerComment ${comment.userId === userData.id ?
+                                    "containerComment-User" : "containerComment-client"}`}
+                                >
+                                    <h3 style={{ margin: "0" }}>{
+                                        !isEmpty(usersData[0]) &&
+                                        usersData.map((user) => {
+                                            if (user.id === post.User.id)
+                                                return user.username;
+                                            else { return null; }
+                                        }).join('')
+                                    }
+                                    </h3>
+                                    <p className="text-comment">{comment.comment}</p>
                                 </div>
-                                <p className="text-comment">{comment.comment}</p>
                             </div>
-                            {/* <LikeButtonComments comment={comment} likesComment={comment.LikesComments} /> */}
-                            <EditDeleteComment comment={comment} post={post.id} />
                             {comment.imageUrl &&
-                                < img className=" picture-comment" src={comment.imageUrl} alt="comment img" />
+                                < img className="picture-comment" src={comment.imageUrl} alt="comment img" />
                             }
+                            <EditDeleteComment comment={comment} post={post.id} />
                         </div>
                     )
                 })}
             </article>
             {userData.id && (
                 <>
-                    <textarea id="textarea-comment" name="comment"
-                        placeholder="Laisser un commentaire..."
-                        onChange={(e) => setComment(e.target.value)}
-                        value={comment}
-                    ></textarea>
-                    <div className="newComment-img">
-                        <i className="far fa-image"></i>
-                        <input type="file" id="comment-file-upload" name="image" accept=".jpg, .jpeg, .png, .gif" onChange={(e) => handlePicture(e)} />
+                    <div className="newComment">
+                        <img className="picture pictureUser-comment"
+                            src={userData.imageUrlUser === null ? (avatar) :
+                                (userData.imageUrlUser)} alt="user" />
+                        <div className="newComment-img-text">
+                            <textarea id="textarea-comment" name="comment"
+                                placeholder="Laisser un commentaire..."
+                                onChange={(e) => setComment(e.target.value)}
+                                value={comment}
+                            />
+                            <i className="far fa-image"
+                                onClick={triggerFile}
+                                onChange={handlePicture}>
+                            </i>
+                            <input type="file"
+                                id="comment-file-upload"
+                                name="image"
+                                accept=".jpg, .jpeg, .png, .gif"
+                                onChange={(e) => handlePicture(e)}
+                                ref={inputRef}
+                                style={{ display: 'none' }} />
+                        </div>
                     </div>
+                    {/* <div className="newComment-img">
+                        
+                    </div> */}
                     {commentImg && (
                         <div className="imgComment">
-                            <button className="close close-commentImg" onClick={handleDeleteImg}>X</button>
-                            < img className=" picture-comment" src={commentImg} alt="utilisateur img" />
+                            <button className="close close-commentImg" onClick={handleDeleteImg}>
+                                <i className="fas fa-times"></i>
+                            </button>
+                            < img className=" picture-comment"
+                                style={{ margin: "10px 0 0 0 " }}
+                                src={commentImg}
+                                alt="utilisateur img" />
                         </div>
                     )}
-                    <button className="button SendComment-button" onClick={handleComment}>envoyer</button>
+                    <button style={{ width: "100%" }}
+                        className={`button ${comment || commentImg ? " SendComment-button" : "grey-button"}`}
+                        onClick={handleComment}>
+                        Envoyer
+                    </button>
                 </>
             )}
 

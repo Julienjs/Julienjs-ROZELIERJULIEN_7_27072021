@@ -1,35 +1,56 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { deletePost } from '../../actions/post.action';
+import Popup from '../Popup/Popup';
+import ReactToolTip from 'react-tooltip'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.min.css'
+toast.configure();
 
 const DeleteCard = (props) => {
     const dispatch = useDispatch();
-    const [confirmDelete, setConfirmDelete] = useState(false);
+    const [buttonPopup, setButtonPopup] = useState(false)
 
+    const deleteQuote = () => {
+        dispatch(deletePost(props.id));
 
-    const deleteQuote = () =>
-        dispatch(deletePost(props.id))
-
+        toast.success("Publication supprimé !", {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored"
+        });
+    }
     return (
-        <div className="container-deletePost" onClick={() => setConfirmDelete(!confirmDelete)}>
-            <i className="far fa-trash-alt"></i>
-            {confirmDelete &&
-                <article className="article-popup  style-popup">
-                    <div className="container-popup delete">
-                        <h3>Voulez-vous supprimer ce post ?</h3>
-                        <div className="button-popupDelete">
-                            <button className="button green-button popupButton"
-                                onClick={() => setConfirmDelete(false)}>
-                                Annuler
-                            </button>
-                            <button className="button red-button popupButton"
-                                onClick={deleteQuote}>
-                                Confirmer
-                            </button>
-                        </div>
-                    </div>
-                </article>
-            }
+        <div className="container-deletePost">
+            <i className="far fa-trash-alt"
+                onClick={() => setButtonPopup(true)}
+                data-tip="Supprimer"></i>
+            <ReactToolTip
+                place="bottom"
+                type="info"
+                effect="solid"
+            />
+
+            <Popup trigger={buttonPopup} setTrigger={setButtonPopup}>
+                <h2 className="popup-title" style={{ fontSize: "1em" }}>Supprimer la publication</h2>
+                <div className="border-bottom"></div>
+                <p>Voulez-vous supprimer ce post ?</p>
+                <div className="button-popupDelete">
+                    <button className="button green-button popupButton"
+                        onClick={() => setButtonPopup(false)}>
+                        Annuler
+                    </button>
+                    <button className="button red-button popupButton"
+                        onClick={deleteQuote}>
+                        Confirmer
+                    </button>
+                </div>
+            </Popup>
         </div>
     );
 

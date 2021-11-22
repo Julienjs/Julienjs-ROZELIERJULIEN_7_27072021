@@ -1,4 +1,4 @@
-import { GET_ALL_COMMENTS } from "../actions/comment.action";
+// import { GET_ALL_COMMENTS } from "../actions/comment.action";
 import { DELETE_POST, GET_ALL_POSTS, UPDATE_POST, EDIT_COMMENT, DELETE_COMMENT, UPDATE_IMG_POST, LIKE_POST } from "../actions/post.action";
 
 const initialState = {};
@@ -27,8 +27,8 @@ export default function postReducer(state = initialState, action) {
             });
         case DELETE_POST:
             return state.filter((post) => post.id !== action.payload.postId);
-        case GET_ALL_COMMENTS:
-            return action.payload;
+        // case GET_ALL_COMMENTS:
+        //     return action.payload;
         case EDIT_COMMENT:
             return state.map((post) => {
                 return {
@@ -57,7 +57,7 @@ export default function postReducer(state = initialState, action) {
         case LIKE_POST:
             return state.map((post) => {
                 if (post.id === action.payload.postId) {
-                    if (action.payload.liked) {
+                    if (action.payload.liked === true) {
                         return {
                             ...post,
                             Likes: [...post.Likes, 0],
@@ -70,30 +70,6 @@ export default function postReducer(state = initialState, action) {
                     }
                 } return post
             });
-        // case LIKE_COMMENT:
-        //     return state.map((post) => {
-        //         return {
-        //             ...post,
-        //             comment: post.Comments.map((comment) => {
-        //                 if (comment.id === action.payload.commentId) {
-        //                     if (action.payload.liked) {
-        //                         return {
-        //                             ...comment,
-        //                             Likes: [...comment.LikesComments, 0],
-        //                         }
-        //                     }
-        //                     else {
-        //                         const likesArray = comment.LikesComments;
-        //                         likesArray.pop();
-        //                         return { ...comment, Likes: likesArray }
-        //                     }
-        //                 }
-        //                 return post
-        //             })
-        //         }
-
-        //     });
-
         default:
             return state;
     }

@@ -15,15 +15,18 @@ export const DELETE_COMMENT = "DELETE_COMMENT";
 export const LIKE_POST = "LIKE_POST";
 // export const LIKE_COMMENT = "LIKE_COMMENT";
 
+const token = localStorage.getItem("token");
 
 
 export const getAllPosts = (num) => {
     return (dispatch) => {
         return axios
-            .get(`${process.env.REACT_APP_API_URL}api/post/`)
+            .get(`${process.env.REACT_APP_API_URL}api/post/`,
+                {
+                    headers: { 'Authorization': `Bearer ${token}` },
+                })
             .then((res) => {
                 const array = res.data.posts.slice(0, num);
-                // console.log(res.data.posts);
                 dispatch({ type: GET_ALL_POSTS, payload: array })
             })
             .catch((err) => console.log(err));
@@ -31,7 +34,6 @@ export const getAllPosts = (num) => {
 }
 
 export const addPost = (data, uid) => {
-    const token = localStorage.getItem('token');
     return (dispatch) => {
         return axios({
             method: "post",
@@ -50,11 +52,12 @@ export const updatePost = (postId, message) => {
         return axios({
             method: "put",
             url: (`${process.env.REACT_APP_API_URL}api/post/${postId}`),
+            headers: {
+                'Authorization': `Bearer ${token}`
+            },
             data: {
                 message,
-
             }
-
         })
             .then((res) => {
                 dispatch({ type: UPDATE_POST, payload: { message, postId } })
@@ -67,10 +70,12 @@ export const updateImgPost = (postId, image) => {
     return (dispatch) => {
         let data = new FormData();
         data.append('image', image);
-
         return axios({
             method: "put",
             url: `${process.env.REACT_APP_API_URL}api/post/${postId}/image`,
+            headers: {
+                'Authorization': `Bearer ${token}`
+            },
             data: data
         })
             .then((res) => {
@@ -86,6 +91,9 @@ export const deletePost = (postId) => {
         return axios({
             method: "delete",
             url: `${process.env.REACT_APP_API_URL}api/post/${postId}`,
+            headers: {
+                'Authorization': `Bearer ${token}`
+            },
         })
             .then((res) => {
                 dispatch({ type: DELETE_POST, payload: { postId } })
@@ -94,21 +102,7 @@ export const deletePost = (postId) => {
     };
 };
 
-// export const getAllComments = (num) => {
-//     return (dispatch) => {
-//         return axios
-//             .get(`${process.env.REACT_APP_API_URL}api/post/`)
-//             .then((res) => {
-//                 console.log(res);
-//                 const array = res.data.comments.slice(0, num);
-//                 dispatch({ type: GET_ALL_COMMENTS, payload: array })
-//             })
-//             .catch((err) => console.log(err));
-//     }
-// }
-
 export const addComment = (data, postId,) => {
-    const token = localStorage.getItem("token");
     return (dispatch) => {
         return axios({
             method: "post",
@@ -122,7 +116,6 @@ export const addComment = (data, postId,) => {
 };
 
 export const editComment = (commentId, comment) => {
-    const token = localStorage.getItem("token");
     return (dispatch) => {
         return axios({
             method: "put",
@@ -135,7 +128,6 @@ export const editComment = (commentId, comment) => {
             }
         })
             .then((res) => {
-                // console.log(res);
                 dispatch({ type: EDIT_COMMENT, payload: { comment, commentId } })
             })
             .catch((err) => console.log(err));
@@ -144,7 +136,6 @@ export const editComment = (commentId, comment) => {
 
 
 export const deleteComment = (commentId) => {
-    const token = localStorage.getItem("token");
     return (dispatch) => {
         return axios({
             method: "delete",
@@ -162,7 +153,6 @@ export const deleteComment = (commentId) => {
 };
 
 export const likePost = (postId) => {
-    const token = localStorage.getItem("token");
     return (dispatch) => {
         return axios
             .post(`${process.env.REACT_APP_API_URL}api/like/`,
@@ -177,19 +167,3 @@ export const likePost = (postId) => {
     }
 }
 
-// export const likeComment = (commentId, postId) => {
-//     const token = localStorage.getItem("token");
-//     return (dispatch) => {
-//         return axios
-//             .post(`${process.env.REACT_APP_API_URL}api/like/comment`,
-//                 { CommentId: commentId },
-//                 {
-//                     headers: { 'Authorization': `Bearer ${token}` },
-//                 }
-//             ).then((res) => {
-//                 console.log(res.data.liked);
-//                 dispatch({ type: LIKE_COMMENT, payload: { postId, commentId, liked: res.data.liked } })
-//             })
-//             .catch((err) => console.log(err));
-//     }
-// }

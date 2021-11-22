@@ -11,6 +11,11 @@ const load = async () => {
         onDelete: "cascade"
     });
 
+    await User.hasMany(Post, {
+        foreignKey: "userId",
+        onDelete: "cascade"
+    });
+
     await Comment.belongsTo(User, {
         foreignKey: "userId",
         onDelete: 'cascade'
@@ -48,16 +53,16 @@ const load = async () => {
     });
 
     await User.sync();
-    await Comment.sync({ alter: true });
+    await Comment.sync();
     await Post.sync();
     await Likes.sync();
-    await LikesComments.sync();
+    // await LikesComments.sync();
 
 
     // await Like_Post.sync();
 
     // await Like.sync();
-    // { force: true }{ alter: true }{ alter: true }{ alter: true }{ alter: true }
+    // { force: true }{ alter: true }{ alter: true }
 
 }
 // Like,
