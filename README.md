@@ -22,6 +22,6 @@ Projet 7 du parcour développeur web Openclassrooms
 
 
 # Démarrage
-* Ouvrir 2 terminaux un dossier backend l'autre dossier frontend,
+* Ouvrir 2 terminaux un dossier backend l'autre dossier client
 * éxécuter npm start dans chacun des terminaux.
 
